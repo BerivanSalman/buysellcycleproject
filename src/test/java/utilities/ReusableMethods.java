@@ -18,17 +18,16 @@ import java.util.Set;
 
 public class ReusableMethods {
 
-    public static void bekle(int saniye){
+    public static void wait(int second){
 
         try {
-            Thread.sleep(saniye*1000);
+            Thread.sleep(second*1000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-
     }
 
-    public static List<String> stringListeCevir(List<WebElement> webElementList){
+    public static List<String> createStringList(List<WebElement> webElementList){
 
         List<String> stringList = new ArrayList<>();
 
@@ -41,23 +40,21 @@ public class ReusableMethods {
         return stringList;
     }
 
-    public static void titleIleWindowDegistir(String hedefTitle, WebDriver driver){
+    public static void changeWindowWithTitle(String targetTitle, WebDriver driver){
 
-        Set<String> whdSeti = driver.getWindowHandles();
+        Set<String> whdSet = driver.getWindowHandles();
 
-
-        for (String eachWhd : whdSeti
+        for (String eachWhd : whdSet
         ) {
             driver.switchTo().window(eachWhd);
 
-            String oldugumuzSayfaTitle = driver.getTitle();
+            String currentTitle = driver.getTitle();
 
-            if (oldugumuzSayfaTitle.equals(hedefTitle)){
+            if (currentTitle.equals(targetTitle)){
 
                 break;
             }
         }
-
     }
 
     public static void tumSayfaSreenshot(WebDriver driver)  {
@@ -90,28 +87,23 @@ public class ReusableMethods {
 
     public static void tumSayfaSreenshot(WebDriver driver,String resimAdi)  {
         // 1- bir TakesScreenShot objesi olusturun ve deger olarak driver'i atayin
-
         TakesScreenshot tss = (TakesScreenshot) driver;
 
         // 2- screenshot'i kaydedecegimiz bir dosya olusturalim
-
         File tumSayfaScreenshot = new File("target/tumSayfaScreenshot/"+resimAdi+".jpeg");
 
         // 3- tss objesini kullanarak screenshot alin ve bir File olarak kaydedin
-
         File geciciDosya = tss.getScreenshotAs(OutputType.FILE);
 
         // 4- gecici dosyayi deger olarak asil kaydedilecek File'a kopyalayin
-
         try {
             FileUtils.copyFile(geciciDosya,tumSayfaScreenshot);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
     }
 
-    public static void webelementScreenshot(WebElement webElement){
+    public static void webElementScreenshot(WebElement webElement){
         // 1- screenshot alacaginiz webelementi locate edip kaydedin
         // 2- screenshot'i kaydedecegimiz dosyayi olusturun
         //    screenshot ismini unique yapabilmek icin, timestamp ekleyelim
@@ -128,13 +120,12 @@ public class ReusableMethods {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
     }
 
     public static void webelementScreenshot(WebElement webElement,String screenshotIsim){
         // 1- screenshot alacaginiz webelementi locate edip kaydedin
         // 2- screenshot'i kaydedecegimiz dosyayi olusturun
-        //    screenshot ismini unique yapabilmek icin, timestamp ekleyelim
+        // screenshot ismini unique yapabilmek icin, timestamp ekleyelim
         LocalDateTime ldt = LocalDateTime.now(); // 2024-01-24T19:01:05.777116
         DateTimeFormatter zamanFormati = DateTimeFormatter.ofPattern("YYMMddHHmmss");
         String timeStamp = ldt.format(zamanFormati); // 240124190341
@@ -148,7 +139,6 @@ public class ReusableMethods {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
     }
 
     public static String getScreenshot(String name) throws IOException {
@@ -164,4 +154,6 @@ public class ReusableMethods {
         FileUtils.copyFile(source, finalDestination);
         return target;
     }
+
+
 }
