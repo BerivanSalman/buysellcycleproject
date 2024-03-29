@@ -148,4 +148,160 @@ public class buysellcycle_homepage {
     }
 
 
+    @Given("User clicks on New Product Deals title")
+    public void userClicksOnNewProductDealsTitle() {
+        buysellcycleHomePage.NewProductDealsButton.click();
+    }
+
+    @Then("Verify that user can go to the related pages")
+    public void verifyThatUserCanGoToTheRelatedPages() {
+        Assert.assertTrue(buysellcycleHomePage.labelBestDeals.isDisplayed());
+    }
+
+
+    @Then("User displays filter by Rating")
+    public void userDisplaysFilterByRating() {
+        Assert.assertTrue(buysellcycleHomePage.filterByRate.isDisplayed());
+    }
+
+    @Then("User clicks on five stars button")
+    public void userClicksOnFiveStarsButton() {
+        buysellcycleHomePage.filterFiveStar.click();
+    }
+
+    @And("User displays filter by price")
+    public void userDisplaysFilterByPrice() {
+
+    }
+
+    @And("User chooses between 150 and 200 price")
+    public void userChoosesBetweenAndPrice() {
+
+    }
+
+
+    @Then("Verify that user displays the products with five star")
+    public void verifyThatUserDisplaysTheProductsWithFiveStar() {
+
+    }
+
+    @And("User clicks on filter button")
+    public void userClicksOnFilterButton() {
+
+    }
+
+    @And("Verify that user displays the products between 350-2000")
+    public void verifyThatUserDisplaysTheProductsBetween() {
+    }
+
+    @Then("User displays the lists of the latest products on the best deals page")
+    public void userDisplaysTheListsOfTheLatestProductsOnTheBestDealsPage() {
+        Assert.assertTrue(buysellcycleHomePage.lenovoPructuctName.isDisplayed());
+    }
+
+    @Then("User clicks on Grid View item")
+    public void userClicksOnGridViewItem() {
+        buysellcycleHomePage.gridViewIcon.click();
+
+
+    }
+
+    @Then("User displays products")
+    public void userDisplaysProducts() {
+
+    }
+
+    @Then("User clicks on Man'Apparel on the left side")
+    public void userClicksOnManApparelOnTheLeftSide() {
+        buysellcycleHomePage.mansApparelButton.click();
+
+    }
+
+    @Then("User clicks on refresh button on the best deals page")
+    public void userClicksOnRefreshButtonOnTheBestDealsPage() {
+        buysellcycleHomePage.refreshButton.click();
+
+    }
+
+    @Then("User displays that the page has been refreshed")
+    public void userDisplaysThatThePageHasBeenRefreshed() {
+        Assert.assertTrue(buysellcycleHomePage.relaxPlaySwingProduct.isDisplayed());
+
+    }
+
+    @Given("User goes to the url")
+    public void userGoesToTheUrl() {
+        Driver.getDriver().get(ConfigReader.getProperty("Url"));
+
+    }
+
+    @Then("User clicks on New User Zone menu")
+    public void userClicksOnNewUserZoneMenu() {
+        buysellcycleHomePage.newUserZoneButton.click();
+    }
+
+    @Then("Verify that user is in the new user zone page")
+    public void verifyThatUserIsInTheNewUserZonePage() {
+      Assert.assertTrue(buysellcycleHomePage.labelSuprisesForNewUsers.isDisplayed());
+    }
+
+    @Then("User displays for you section")
+    public void userDisplaysForYouSection() {
+        Assert.assertTrue(buysellcycleHomePage.forYouButton.isDisplayed());
+
+    }
+
+    @Then("User displays exculisive price section")
+    public void userDisplaysExculisivePriceSection() {
+        Assert.assertTrue(buysellcycleHomePage.exclusivePriceButton.isDisplayed());
+
+    }
+
+    @Then("User displays coupon section")
+    public void userDisplaysCouponSection() {
+        Assert.assertTrue(buysellcycleHomePage.couponButton.isDisplayed());
+
+    }
+
+    @Then("User clicks on for you section")
+    public void userClicksOnForYouSection() {
+      buysellcycleHomePage.forYouButton.click();
+    }
+
+    @And("Verify that user is in the for you section")
+    public void verifyThatUserIsInTheForYouSection() {
+      Assert.assertTrue(buysellcycleHomePage.labelProducts.isDisplayed());
+    }
+
+    @And("User clicks on exclusive price section")
+    public void userClicksOnExclusivePriceSection() {
+        buysellcycleHomePage.exclusivePriceButton.click();
+
+    }
+
+    @And("Verify that user is in the exclusive section")
+    public void verifyThatUserIsInTheExclusiveSection() {
+     Assert.assertTrue(buysellcycleHomePage.labelExclusivePrice.isDisplayed());
+    }
+
+    @And("User clicks on coupon section")
+    public void userClicksOnCouponSection() {
+        ReusableMethods.wait(1);
+       buysellcycleHomePage.couponButton.click();
+    }
+
+    @And("Verify that user is in the coupon section")
+    public void verifyThatUserIsInTheCouponSection() {
+       Assert.assertTrue(buysellcycleHomePage.couponText.isDisplayed());
+    }
+
+    @Then("Verify that the products is visible")
+    public void verifyThatTheProductsIsVisible() {
+     Assert.assertTrue(buysellcycleHomePage.firstProductName.isDisplayed());
+    }
+
+    @Then("Verify that special discounts are visible")
+    public void verifyThatSpecialDiscountsAreVisible() {
+       Assert.assertTrue(buysellcycleHomePage.specialDiscountName.isDisplayed());
+    }
 }

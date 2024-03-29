@@ -39,7 +39,7 @@ public class Driver {
                     driver = new EdgeDriver();
                     break;
                 default:
-                    WebDriverManager.chromedriver().setup();
+                   // WebDriverManager.chromedriver().setup();
                     driver = new ChromeDriver();
             }
 
