@@ -1,4 +1,4 @@
-@Smok
+
 
 Feature: US_002 The user performs site operations with accessible links on the homepage's top bar
 
