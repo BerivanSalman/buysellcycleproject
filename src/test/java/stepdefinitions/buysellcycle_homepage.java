@@ -73,4 +73,91 @@ public class buysellcycle_homepage {
         ReusableMethods.wait(second);
     }
 
+    @And("User scrolls down the page until sees the Best Deals section.")
+    public void userScrollsDownThePageUntilSeesTheBestDealsSection() {
+        ReusableMethods.scrollToElement(buysellcycleHomePage.labelBestDeals);
+    }
+
+    @Then("User sees Best Deals section on the body.")
+    public void userSeesBestDealsSectionOnTheBody() {
+        Assert.assertTrue(buysellcycleHomePage.labelBestDeals.isDisplayed());
+    }
+
+    @Then("User sees Best Deals items.")
+    public void userSeesBestDealsItems() {
+        Assert.assertTrue(buysellcycleHomePage.productBestDealsItem.isDisplayed());
+    }
+
+    @Then("User clicks on View All button.")
+    public void user_clicks_on_view_all_button() {
+        buysellcycleHomePage.bestDealsViewAllButton.click();
+    }
+    @Then("User sees all Best Deals items.")
+    public void user_sees_all_best_deals_items() {
+        Assert.assertTrue(buysellcycleHomePage.labelBestDealsPage.isDisplayed());
+    }
+
+    @Then("User sees Best Deals items and clicks on any item.")
+    public void userSeesBestDealsItemsAndClicksOnAnyItem() {
+        Assert.assertTrue(buysellcycleHomePage.labelBestDealsAllProducts.isDisplayed());
+
+    }
+
+    @And("User views clicked item.")
+    public void userViewsClickedItem() {
+    }
+
+    @And("User clicks on the adding to cart button.")
+    public void userClicksOnTheAddingToCartButton() {
+    }
+
+    @Then("User click the View Cart button on the alert page that appears.")
+    public void userClickTheViewCartButtonOnTheAlertPageThatAppears() {
+    }
+
+    @And("User sees that the product has been added to the cart.")
+    public void userSeesThatTheProductHasBeenAddedToTheCart() {
+    }
+
+    @Then("User comes back to the page and closes the alert.")
+    public void userComesBackToThePageAndClosesTheAlert() {
+    }
+
+    @And("User clicks on Add To Compare button.")
+    public void userClicksOnAddToCompareButton() {
+    }
+
+    @And("User gets alert message Product added to compare list successfully.")
+    public void userGetsAlertMessageProductAddedToCompareListSuccessfully() {
+    }
+
+    @Then("User clicks on Compare button on the head.")
+    public void userClicksOnCompareButtonOnTheHead() {
+    }
+
+    @And("User sees that the product has been added to the for compare.")
+    public void userSeesThatTheProductHasBeenAddedToTheForCompare() {
+    }
+
+    @Then("User comes back to the page.")
+    public void userComesBackToThePage() {
+    }
+
+    @And("User clicks on Add To Wishlist button.")
+    public void userClicksOnAddToWishlistButton() {
+    }
+
+    @Then("User gets alert message Product added to wishlist successfully.")
+    public void userGetsAlertMessageProductAddedToWishlistSuccessfully() {
+    }
+
+    @And("User clicks on Wishlist button on the head.")
+    public void userClicksOnWishlistButtonOnTheHead() {
+    }
+
+    @Then("User sees that the product has been added to the for wishlist.")
+    public void userSeesThatTheProductHasBeenAddedToTheForWishlist() {
+    }
+
+
 }
