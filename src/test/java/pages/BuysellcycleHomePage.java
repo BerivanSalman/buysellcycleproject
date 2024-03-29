@@ -13,10 +13,8 @@ public class BuysellcycleHomePage {
 
 
     public BuysellcycleHomePage(){PageFactory.initElements(Driver.getDriver(),this);}
-public void homePage() throws InterruptedException {
-    Driver.getDriver().get(ConfigReader.getProperty("toUrl"));
 
-}
+
 
 
     @FindBy(xpath = "//a[@href='https://qa.buysellcycle.com/login']")

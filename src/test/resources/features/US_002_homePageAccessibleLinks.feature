@@ -3,7 +3,7 @@
 Feature: US_002 The user performs site operations with accessible links on the homepage's top bar
 
   Background:
-    Given User goes to "toUrl"
+    Given User goes to the buysellcyle homepage.
 
 #  Scenario Outline:User uses to simple links on the top bar of the site
 #    And User uses to simple links "<Name of Link>" "<Target Page>"

@@ -28,11 +28,6 @@ public class buysellcycle_homepage {
 
 
 
-    private WebDriver driver;
-    @Given("User goes to {string}")
-    public void user_goes_to(String url) throws InterruptedException {
-        buysellcylePage.homePage();
-    }
 
 
 
