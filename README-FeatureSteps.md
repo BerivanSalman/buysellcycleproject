@@ -32,7 +32,7 @@ Admin closes the page.
 
 **_Other Useful Steps_** 
 
-User waits for "1" second(s).
+User waits for 1 second(s).
 
 
 

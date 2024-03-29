@@ -8,7 +8,7 @@ import org.junit.runner.RunWith;
 
 public class OuterRunner {
 
-    final String tags = "@tag";
+    final String tags = "@US_014-TC_001";
 
     @CucumberOptions(
             plugin = {
@@ -17,8 +17,8 @@ public class OuterRunner {
                     "junit:target/xml-report/" + tags + "-report.xml",
                     "rerun:target/failedRerun.txt"
             },
-            features = "src/test/Resources",
-            glue = {"StepDefinitions"},
+            features = "src/test/resources",
+            glue = {"stepdefinitions"},
             tags = tags,
             dryRun = false
     )
