@@ -3,12 +3,18 @@ package stepdefinitions;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+
+import org.openqa.selenium.WebDriver;
+
 import org.junit.Assert;
+
 import pages.BuysellcycleHomePage;
 import pages.BuysellcycleRegisteredUserPage;
 import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
+
+import java.util.concurrent.TimeUnit;
 
 public class buysellcycle_homepage {
 
@@ -19,6 +25,20 @@ public class buysellcycle_homepage {
     public void user_goes_to_the_buysellcyle_homepage() {
         Driver.getDriver().get(ConfigReader.getProperty("Url"));
     }
+
+
+
+
+
+
+    @Then("User closed to page")
+    public void user_closed_to_page() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+
+
+}
 
     @Given("User clicks on the Log In button and displays the sign in page.")
     public void user_clicks_on_the_log_in_button_and_displays_the_sign_in_page() {
