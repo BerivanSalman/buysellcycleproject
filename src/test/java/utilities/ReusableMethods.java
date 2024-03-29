@@ -1,10 +1,7 @@
 package utilities;
 
 import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 
 import java.io.File;
 import java.io.IOException;
@@ -17,6 +14,13 @@ import java.util.List;
 import java.util.Set;
 
 public class ReusableMethods {
+
+
+    public static void scrollToElement(WebElement element){
+
+        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+        js.executeScript("arguments[0].scrollIntoView();", element);
+    }
 
     public static void wait(int second){
 
