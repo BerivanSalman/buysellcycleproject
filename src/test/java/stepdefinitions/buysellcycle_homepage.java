@@ -304,4 +304,22 @@ public class buysellcycle_homepage {
     public void verifyThatSpecialDiscountsAreVisible() {
        Assert.assertTrue(buysellcycleHomePage.specialDiscountName.isDisplayed());
     }
+
+    @Given("User scrolls down the page until sees Footer section.")
+    public void userScrollsDownThePageUntilSeesFooterSection() {
+        ReusableMethods.scrollToElement(buysellcycleHomePage.aboutUsLink);
+    }
+
+    @Then("User click Blog section.")
+    public void userClickBlogSection() {
+        buysellcycleHomePage.blogLink.click();
+
+    }
+
+    @And("User confirms that they were redirected to the Blog page.")
+    public void userConfirmsThatTheyWereRedirectedToTheBlogPage() {
+        String expectedUrl= "https://qa.buysellcycle.com/blog";
+        String actualUrl=Driver.getDriver().getCurrentUrl();
+        Assert.assertEquals(expectedUrl,actualUrl);
+    }
 }
