@@ -105,6 +105,16 @@ public class BuysellcycleHomePage {
     @FindBy(xpath = "(//*[@class='d-flex align-items-center discount'])[3]")
     public WebElement specialDiscountName;
 
+
+    @FindBy(xpath = "(//footer//div[contains(@class, 'container')])[1]")
+    public WebElement footerSection;
+
+    @FindBy(xpath = "(//*[text()='About Us'])[3]")
+    public WebElement aboutUsLink;
+
+    @FindBy(xpath = "(//*[text()='Blog'])[3]")
+    public WebElement blogLink;
+
     @FindBy(xpath = "//div[@class=\"about_countBox mb_30 text-center\"][1]")
     public WebElement logoClientWorldwide;
 
@@ -123,8 +133,6 @@ public class BuysellcycleHomePage {
 
     @FindBy(xpath = "//h5[@class='font_14 f_w_400 flex-fill mb-0']")
     public WebElement labelShowingResult;
-
-
 
 
 }

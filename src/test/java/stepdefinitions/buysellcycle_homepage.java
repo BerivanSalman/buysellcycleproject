@@ -305,6 +305,23 @@ public class buysellcycle_homepage {
        Assert.assertTrue(buysellcycleHomePage.specialDiscountName.isDisplayed());
     }
 
+    @Given("User scrolls down the page until sees Footer section.")
+    public void userScrollsDownThePageUntilSeesFooterSection() {
+        ReusableMethods.scrollToElement(buysellcycleHomePage.aboutUsLink);
+    }
+
+    @Then("User click Blog section.")
+    public void userClickBlogSection() {
+        buysellcycleHomePage.blogLink.click();
+
+    }
+
+    @And("User confirms that they were redirected to the Blog page.")
+    public void userConfirmsThatTheyWereRedirectedToTheBlogPage() {
+        String expectedUrl= "https://qa.buysellcycle.com/blog";
+        String actualUrl=Driver.getDriver().getCurrentUrl();
+        Assert.assertEquals(expectedUrl,actualUrl);
+    }
 
     @Then("User scrolls down the page until sees the   Client Worldwide.Clicks on the About Us linktext from the home page")
     public void user_scrolls_down_the_page_until_sees_the_client_worldwide_clicks_on_the_about_us_linktext_from_the_home_page() {
@@ -365,6 +382,5 @@ Assert.assertTrue(buysellcycleHomePage.logoClientWorldwide.isDisplayed());
     public void user_verified_that_my_wishlist_page() {
         Assert.assertTrue(buysellcycleHomePage.labelShowingResult.isDisplayed());
     }
-
 
 }
