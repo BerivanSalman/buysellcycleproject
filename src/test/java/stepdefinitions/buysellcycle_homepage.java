@@ -3,14 +3,21 @@ package stepdefinitions;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.junit.Assert;
 
+import org.openqa.selenium.WebDriverException;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.BuysellcycleHomePage;
 import pages.BuysellcycleRegisteredUserPage;
 import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
+
+import java.time.Duration;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class buysellcycle_homepage {
@@ -358,13 +365,140 @@ Assert.assertTrue(buysellcycleHomePage.logoClientWorldwide.isDisplayed());
 
     buysellcycleHomePage.linkMyWishList.click();
 
-
     }
 
     @Then("User verified that  My Wishlist page")
     public void user_verified_that_my_wishlist_page() {
         Assert.assertTrue(buysellcycleHomePage.labelShowingResult.isDisplayed());
     }
+    @Then("User verifies that the Daily Deals menu item is visible on the homepage navbar.")
+    public void user_verifies_that_the_daily_deals_menu_item_is_visible_on_the_homepage_navbar() {
+        Assert.assertTrue(buysellcycleHomePage.linkDailyDeals.isDisplayed());
+    }
+    @Then("User clicks the Daily Deals menu item on the homepage")
+    public void user_clicks_the_daily_deals_menu_item_on_the_homepage() {
+      buysellcycleHomePage.linkDailyDeals.click();
+    }
+    @Then("User ensures that clicking on the Daily Deals menu item redirects the user to the Daily Deals page.")
+    public void user_ensures_that_clicking_on_the_daily_deals_menu_item_redirects_the_user_to_the_daily_deals_page() {
+        String expectedResult = "https://qa.buysellcycle.com/flash-deal/march-flash-sale-gdfn6";
+        String actualResult = Driver.getDriver().getCurrentUrl();
+        Assert.assertEquals(expectedResult,actualResult);
+    }
+    @Then("User confirms that a counter is displayed on the Daily Deals page.")
+    public void user_confirms_that_a_counter_is_displayed_on_the_daily_deals_page() {
+        buysellcycleHomePage.counter.isDisplayed();
+    }
+    @Then("User validates that special promotional products are visible on the Daily Deals page.")
+    public void user_validates_that_special_promotional_products_are_visible_on_the_daily_deals_page() {
+        Assert.assertTrue(buysellcycleHomePage.specialPromotionalProducts.size() > 0);
+    }
+
+    @Then("User scrolls down the page")
+    public void user_scrolls_down_the_page() {
+        ReusableMethods.scrollToElement(buysellcycleHomePage.buttonForScrollAddtoCart);
+    }
+
+    @And("User waits for {int} seconds")
+    public void userWaitsForSeconds(int saniye) {
+        ReusableMethods.wait(saniye);
+    }
+
+    @Then("User clicks one of the products")
+    public void userClicksOneOfTheProducts() {
+        buysellcycleHomePage.specialPromotionalProducts.get(0).click();
+    }
+
+    @Then("User verifies that add to cart button is visible and clicks add to cart button")
+    public void userVerifiesThatAddToCartButtonIsVisibleAndClicksAddToCartButton() {
+        buysellcycleHomePage.buttonAddtoCart.click();
+    }
+
+    @Then("User ensures that the product is added to the cart")
+    public void userEnsuresThatTheProductIsAddedToTheCart() {
+       Assert.assertTrue(buysellcycleHomePage.textAddtoCart.isDisplayed());
+    }
+
+    @And("User clicks View Cart button to see the products")
+    public void userClicksViewCartButtonToSeeTheProductProducts() {
+        buysellcycleHomePage.buttonViewCart.click();
+    }
+
+    @Then("User verifies that the price of the product is correct")
+    public void userVerifiesThatThePriceOfTheProductIsCorrect() {
+        double expectedPrice =55500.0;
+        String sonucSayisiStr = buysellcycleHomePage.priceOfTheProduct.getText().replaceAll("\\D","");
+        double sonucSayisiInt = Integer.parseInt(sonucSayisiStr);
+        double actualPrice = sonucSayisiInt;
+        double delta = 0.1;
+        Assert.assertEquals(expectedPrice, actualPrice, delta);
 
 
+    }
+
+    @And("User verifies that the chosen product is correct")
+    public void userVerifiesThatTheChosenProductIsCorrect() {
+        String chosenProduct = buysellcycleHomePage.textChosenProduct.getText();
+        String addedProduct = buysellcycleHomePage.addedProduct.getText();
+        Assert.assertEquals(chosenProduct,addedProduct);
+
+    }
+
+    @Then("User ensures the number of the selected product is correct")
+    public void userEnsuresTheNumberOfTheSelectedProductIsCorrect() {
+    }
+
+    @Then("User verifies that Add to Compare action visible")
+    public void userVerifiesThatAddToCompareActionVisible() {
+        
+    }
+
+    @And("User clicks Add to Compare action")
+    public void userClicksAddToCompareAction() {
+        buysellcycleHomePage.linkCompare.click();
+
+    }
+
+    @And("User confirms that the selected product is added to the comparison list")
+    public void userConfirmsThatTheSelectedProductIsAddedToTheComparisonList() {
+
+    }
+
+    @Then("User clicks on the  button in the header")
+    public void userClicksOnTheButtonInTheHeader() {
+    }
+
+    @And("User scrolls down to see Add to compare action the page")
+    public void userScrollsDownToSeeAddToCompareActionThePage() {
+        ReusableMethods.scrollToElement(buysellcycleHomePage.textChosenProduct);
+    }
+
+    @Then("User views the success message")
+    public void userViwesTheSuccessMessage() {
+        Assert.assertTrue(buysellcycleHomePage.textSuccess.isDisplayed());
+    }
+
+    @And("User clicks add to wishlist action")
+    public void userClicksAddToWishlistAction() {
+        buysellcycleHomePage.linkWishList.click();
+    }
+
+    @Then("User views the warning message")
+    public void userViwesTheWarningMessage() {
+        Assert.assertTrue(buysellcycleHomePage.textWarning.isDisplayed());
+    }
+
+
+    @Then("User writes less than required product number to the quantity box")
+    public void userWritesLessThanRequiredProductNumberToTheQuantityBox() {
+        buysellcycleHomePage.boxQuantity.clear();
+        buysellcycleHomePage.boxQuantity.sendKeys("0");
+
+    }
+
+    @And("User writes more than required product number to the quantity box")
+    public void userWritesMoreThanRequiredProductNumberToTheQuantityBox() {
+        buysellcycleHomePage.boxQuantity.clear();
+        buysellcycleHomePage.boxQuantity.sendKeys("5");
+    }
 }
