@@ -8,7 +8,7 @@ Feature: US_020-As a registered user, I would like to have a page on my Dashboar
     And User clicks on the Password box and enters a valid "muratPassword".
     Then User clicks on the Sign In button.
 
-  @Murat @US_20-TC_001
+  @Murat @US_020-TC_001
     Scenario: The registered user can see and interact with the My Order menu title in the Dashboard sideBar.
 
       And User displays the user dashboard page.
