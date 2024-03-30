@@ -1,6 +1,10 @@
 package pages;
 
+feature/Reyhan1
+import org.junit.Assert;
+
 import org.bouncycastle.jcajce.provider.asymmetric.X509;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -33,6 +37,40 @@ public class BuysellcycleHomePage {
 
     @FindBy(xpath = "//h3[@class='m-0']")
     public WebElement labelSignIn;
+
+    @FindBy(xpath = "(//*[@class='single_top_lists d-flex align-items-center d-none d-md-inline-flex'])[1]")
+    public WebElement LinkTrackYourOrder;
+
+    @FindBy(xpath = "(//*[@class='single_top_lists d-flex align-items-center d-none d-md-inline-flex'])[2]")
+    public WebElement LinkCompare;
+
+    @FindBy(xpath = "(//*[@class='single_top_lists d-flex align-items-center d-none d-md-inline-flex'])[3]")
+    public WebElement LinkWishList;
+
+    @FindBy(xpath = "((//*[text()='Cart ('])[1]")
+    public WebElement LinkCart;
+
+    @FindBy(xpath = "(//*[@class='single_top_lists d-flex align-items-center d-none d-md-inline-flex'])[]")
+    public WebElement LinkDailyDeals;
+
+    @FindBy(xpath = "//*[span='New User Zone']")
+    public WebElement LinkNewUserZone;
+
+    @FindBy(xpath = "(//*[text()='Track Your Order'])[2]")
+    public WebElement labelTrackYourOrder;
+
+    @FindBy(xpath = "//*[@class='compare_title_div']")
+    public WebElement labelCompare;
+
+    @FindBy(xpath = "//*[text()='Order Summary']")
+    public WebElement labelOrderSummaryInCart;
+
+    @FindBy(xpath = "//*[text()='Surprises for new users']")
+    public WebElement labelForNewUserZone;
+
+    @FindBy(xpath = "//*[@class='section__title d-flex align-items-center gap-3 m-0 flex-wrap']")
+    public WebElement labelForDailyDeals;
+
 
     @FindBy(xpath = "//h3[@id='best_deals_title']")
     public WebElement labelBestDeals;
@@ -106,6 +144,16 @@ public class BuysellcycleHomePage {
     @FindBy(xpath = "(//*[@class='d-flex align-items-center discount'])[3]")
     public WebElement specialDiscountName;
 
+
+    @FindBy(xpath = "(//footer//div[contains(@class, 'container')])[1]")
+    public WebElement footerSection;
+
+    @FindBy(xpath = "(//*[text()='About Us'])[3]")
+    public WebElement aboutUsLink;
+
+    @FindBy(xpath = "(//*[text()='Blog'])[3]")
+    public WebElement blogLink;
+
     @FindBy(xpath = "//div[@class=\"about_countBox mb_30 text-center\"][1]")
     public WebElement logoClientWorldwide;
 
@@ -169,7 +217,6 @@ public class BuysellcycleHomePage {
 
     @FindBy(xpath = "(//*[@class='col-md-6'])[1]")
     public WebElement addToCartButtonNewUserGift;
-
 
 
 

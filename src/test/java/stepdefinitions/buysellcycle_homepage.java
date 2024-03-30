@@ -3,8 +3,14 @@ package stepdefinitions;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+
 import org.openqa.selenium.JavascriptExecutor;
+
+
+
+
 import org.openqa.selenium.WebDriver;
+
 import org.junit.Assert;
 
 import pages.BuysellcycleHomePage;
@@ -12,6 +18,10 @@ import pages.BuysellcycleRegisteredUserPage;
 import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
+
+
+import static org.junit.Assert.*;
+
 import java.util.concurrent.TimeUnit;
 
 public class buysellcycle_homepage {
@@ -24,11 +34,13 @@ public class buysellcycle_homepage {
         Driver.getDriver().get(ConfigReader.getProperty("Url"));
     }
 
+
     @Then("User closed to page")
     public void user_closed_to_page() {
         // Write code here that turns the phrase above into concrete actions
         throw new io.cucumber.java.PendingException();
     }
+
 
     @Given("User clicks on the Log In button and displays the sign in page.")
     public void user_clicks_on_the_log_in_button_and_displays_the_sign_in_page() {
@@ -62,6 +74,62 @@ public class buysellcycle_homepage {
     public void userWaitsForSecondS(int second) {
         ReusableMethods.wait(second);
     }
+
+
+    @Given("User clicks on the Track Your Order and displays to Track Your Order page")
+    public void user_clicks_on_the_track_your_order_and_displays_to_track_your_order_page() {
+        buysellcycleHomePage.LinkTrackYourOrder.click();
+        buysellcycleHomePage.labelTrackYourOrder.isDisplayed();
+        String actualUrl = Driver.getDriver().getCurrentUrl();
+        String expectedUrl = "https://qa.buysellcycle.com/track-order";
+        assertEquals(actualUrl,expectedUrl);
+    }
+
+    @Given("User clicks on the Compare and displays to Compare page")
+    public void user_clicks_on_the_compare_and_displays_to_compare_page() {
+        buysellcycleHomePage.LinkCompare.click();
+        buysellcycleHomePage.labelCompare.isDisplayed();
+        String actualUrl = Driver.getDriver().getCurrentUrl();
+        String expectedUrl = "https://qa.buysellcycle.com/compare";
+        assertEquals(actualUrl,expectedUrl);
+    }
+
+    @Given("User clicks on the Shopping Cart and displays to Shopping Cart page")
+    public void user_clicks_on_the_shopping_cart_and_displays_to_shopping_cart_page() {
+        buysellcycleHomePage.LinkCart.click();
+        buysellcycleHomePage.labelOrderSummaryInCart.isDisplayed();
+        String actualUrl = Driver.getDriver().getCurrentUrl();
+        String expectedUrl = "https://qa.buysellcycle.com/cart";
+        assertEquals(actualUrl,expectedUrl);
+    }
+
+    @Given("User clicks on the New User Zone and displays to New User Zone page")
+    public void user_clicks_on_the_new_user_zone_and_displays_to_new_user_zone_page() {
+        buysellcycleHomePage.LinkNewUserZone.click();
+        buysellcycleHomePage.labelForNewUserZone.isDisplayed();
+        String actualUrl = Driver.getDriver().getCurrentUrl();
+        String expectedUrl = "https://qa.buysellcycle.com/new-user-zone/welcome-buysellcycle!-u7dzv";
+        assertEquals(actualUrl,expectedUrl);
+    }
+
+    @Given("User clicks on the Daily Deals and displays to Daily Deals page")
+    public void user_clicks_on_the_daily_deals_and_displays_to_daily_deals_page() {
+        buysellcycleHomePage.LinkDailyDeals.click();
+        buysellcycleHomePage.LinkDailyDeals.isDisplayed();
+        String actualUrl = Driver.getDriver().getCurrentUrl();
+        String expectedUrl = "https://qa.buysellcycle.com/flash-deal/march-flash-sale-gdfn6";
+        assertEquals(actualUrl,expectedUrl);
+    }
+
+    @Given("User clicks on the Wish List and displays to Wish List page")
+    public void user_clicks_on_the_wish_list_and_displays_to_wish_list_page() {
+       String actualUrl = Driver.getDriver().getCurrentUrl();
+       String expectedUrl = "https://qa.buysellcycle.com/my-wishlist";
+       assertEquals(actualUrl,expectedUrl);
+
+    }
+
+
 
     @And("User scrolls down the page until sees the Best Deals section.")
     public void userScrollsDownThePageUntilSeesTheBestDealsSection() {
@@ -306,6 +374,23 @@ public class buysellcycle_homepage {
        Assert.assertTrue(buysellcycleHomePage.specialDiscountName.isDisplayed());
     }
 
+    @Given("User scrolls down the page until sees Footer section.")
+    public void userScrollsDownThePageUntilSeesFooterSection() {
+        ReusableMethods.scrollToElement(buysellcycleHomePage.aboutUsLink);
+    }
+
+    @Then("User click Blog section.")
+    public void userClickBlogSection() {
+        buysellcycleHomePage.blogLink.click();
+
+    }
+
+    @And("User confirms that they were redirected to the Blog page.")
+    public void userConfirmsThatTheyWereRedirectedToTheBlogPage() {
+        String expectedUrl= "https://qa.buysellcycle.com/blog";
+        String actualUrl=Driver.getDriver().getCurrentUrl();
+        Assert.assertEquals(expectedUrl,actualUrl);
+    }
 
     @Then("User scrolls down the page until sees the   Client Worldwide.Clicks on the About Us linktext from the home page")
     public void user_scrolls_down_the_page_until_sees_the_client_worldwide_clicks_on_the_about_us_linktext_from_the_home_page() {
