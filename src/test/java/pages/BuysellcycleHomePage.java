@@ -18,6 +18,8 @@ import java.util.Properties;
 public class BuysellcycleHomePage {
 
 
+    public WebElement[] buttonAddToCart;
+
     public BuysellcycleHomePage(){PageFactory.initElements(Driver.getDriver(),this);}
 
 
@@ -172,6 +174,28 @@ public class BuysellcycleHomePage {
 
     @FindBy(xpath = "//h5[@class='font_14 f_w_400 flex-fill mb-0']")
     public WebElement labelShowingResult;
+
+
+    @FindBy(xpath = "(//*[text()='Daily Deals'])") public WebElement linkDailyDeals;
+    @FindBy(xpath = "//*[@id='count_down']") public WebElement counter;
+    @FindBy(xpath = "//*[@class='col-xl-3 col-lg-4 col-md-6 col-6 d-flex']") public List<WebElement> specialPromotionalProducts;
+    @FindBy(xpath = "//*[@class='amaz_primary_btn addToCartFromThumnail']" )public List<WebElement> buttonsAddtoCart;
+    @FindBy(xpath = "(//*[@class='amaz_primary_btn addToCartFromThumnail'])[2]") public WebElement buttonForScrollAddtoCart;
+    @FindBy(xpath = "//*[@id='add_to_cart_btn']") public WebElement buttonAddtoCart;
+    @FindBy(xpath = "//*[text()='Item added to your cart']") public WebElement textAddtoCart;
+    @FindBy(xpath = "//*[text()='View cart']") public WebElement buttonViewCart;
+    @FindBy(xpath = "//*[@class='font_16 f_w_700 m-0 lh-1 text-nowrap']") public WebElement priceOfTheProduct;
+    @FindBy(xpath = "(//*[text()='Red Front Zipper Long Dress'])[1]") public WebElement textChosenProduct;
+    @FindBy(xpath = "//*[@class='font_16 f_w_700 m-0 theme_hover']") public WebElement addedProduct;
+    @FindBy(xpath = "//*[@id='add_to_compare_btn_modify']") public WebElement linkCompare;
+    @FindBy(xpath = "//*[text()='Success'] ") public WebElement textSuccess;
+    @FindBy(xpath = "//*[@id='wishlist_btn']") public WebElement linkWishList;
+    @FindBy(xpath ="//*[text()='Warning'] ")  public WebElement textWarning;
+    @FindBy(xpath = "//*[@name='qty']") public WebElement boxQuantity;
+
+
+
+
 
     @FindBy(xpath = "(//*[@class='col-md-6'])[1]")
     public WebElement addToCartButton;
