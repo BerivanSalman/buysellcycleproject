@@ -322,4 +322,65 @@ public class buysellcycle_homepage {
         String actualUrl=Driver.getDriver().getCurrentUrl();
         Assert.assertEquals(expectedUrl,actualUrl);
     }
+
+    @Then("User scrolls down the page until sees the   Client Worldwide.Clicks on the About Us linktext from the home page")
+    public void user_scrolls_down_the_page_until_sees_the_client_worldwide_clicks_on_the_about_us_linktext_from_the_home_page() {
+
+        ReusableMethods.scrollToElement(buysellcycleHomePage.logoClientWorldwide);
+
+
+    }
+    @Then("User verified that Worldwide Customers, Successful Projects, Work Worked, Planning Services are visible on the page.")
+    public void user_verified_that_worldwide_customers_successful_projects_work_worked_planning_services_are_visible_on_the_page() {
+Assert.assertTrue(buysellcycleHomePage.logoClientWorldwide.isDisplayed());
+
+
+    }
+
+    @Then("User clicks About Linktext")
+    public void user_clicks_about_linktext() {
+
+
+        buysellcycleHomePage.linkAboutUs.click();
+    }
+    @Then("User scrolls down the page until sees the   Team Member.")
+    public void user_scrolls_down_the_page_until_sees_the_team_member() {
+        ReusableMethods.scrollToElement(buysellcycleHomePage.labelTeamMember);
+
+    }
+    @Then("User verified The Team Member's visible")
+    public void user_verified_the_team_member_s_visible() {
+  Assert.assertTrue(buysellcycleHomePage.labelTeamMember.isDisplayed());
+    }
+
+    @Then("User verified display Meet with our Team display of team members")
+    public void user_verified_display_meet_with_our_team_display_of_team_members() {
+        Assert.assertTrue(buysellcycleHomePage.labelTeamMember.isDisplayed());
+    }
+
+    @Then("Click on the Dashboard linktext from the home page")
+    public void click_on_the_dashboard_linktext_from_the_home_page() {
+
+        buysellcycleHomePage.linkDashboard.click();
+
+    }
+    @Then("User scrolls down the page until sees the   My WishList")
+    public void user_scrolls_down_the_page_until_sees_the_my_wish_list() {
+      ReusableMethods.scrollToElement(buysellcycleHomePage.linkMyWishList);
+
+
+    }
+    @Then("User clicks on the MyWishList page")
+    public void user_clicks_on_the_my_wish_list_page() {
+
+    buysellcycleHomePage.linkMyWishList.click();
+
+
+    }
+
+    @Then("User verified that  My Wishlist page")
+    public void user_verified_that_my_wishlist_page() {
+        Assert.assertTrue(buysellcycleHomePage.labelShowingResult.isDisplayed());
+    }
+
 }
