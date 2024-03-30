@@ -29,4 +29,4 @@ Feature: US_010-As a user, I would like to have a contact page on the site so th
     When User fills out the contact form with an invalid email address
     And User clicks the "Send" button
     Then User receives an error message indicating the email address is invalid
-    And User cannot submit the form until a valid email address is provided
+    And User cannot submit the form until a valid email address is provided.

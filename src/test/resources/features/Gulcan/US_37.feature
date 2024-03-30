@@ -29,4 +29,4 @@ Feature: US_037-As an administrator, I would like to have a page on the site whe
     When Administrator is on the "Customers" page
     And Administrator uses the search functionality to find a specific customer by name or email
     Then Administrator sees the search results displaying the customer's information
-    And Administrator verifies that the search functionality works correctly
+    And Administrator verifies that the search functionality works correctly.

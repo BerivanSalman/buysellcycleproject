@@ -33,4 +33,4 @@ Feature: US_030-As a user, I want the products I like to be listed on a page for
     When User is viewing their wishlist
     And User clicks on the "Delete" button next to a product they no longer want in their wishlist
     Then User verifies that the product is removed from their wishlist
-    And User receives a confirmation message indicating the product was removed successfully
+    And User receives a confirmation message indicating the product was removed successfully.

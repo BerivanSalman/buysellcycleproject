@@ -9,4 +9,4 @@ Feature: US_027-As a registered user, I would like to be able to view the seller
     When User clicks on the "Followed Sellers" option in the "My Account" section
     Then User is directed to a page displaying all the sellers they follow
     And User can see a list of sellers with their relevant information (e.g., name, profile picture, ratings)
-    And User can easily navigate to each seller's profile from the list
+    And User can easily navigate to each seller's profile from the list.
