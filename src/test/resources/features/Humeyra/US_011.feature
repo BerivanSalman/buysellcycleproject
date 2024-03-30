@@ -30,3 +30,42 @@ Background:
         Scenario: TC_004 Exclusive Price section  displays products with special discounts for new users.
           Given User clicks on exclusive price section
           Then Verify that special discounts are visible
+@tc5
+     Scenario: TC_005 For You  section  perform operation on products (adding to cart,wishlist,comparing).
+       Given User clicks on for you section
+       Then User click a product
+       Then User clicks on Add to Cart
+       Then Verify that user has added the item
+       Then User clicks on close icon
+       Then User clicks on Add to Compare
+       Then Verify that user has added to compare
+       Then User clicks on add to wishlist
+       Then Verify that user has added to wishlist
+  @tc6
+     Scenario: TC_006 User switches between existing categories in the Exclusive Price section.
+       Given User clicks on exclusive price section
+       Then User clicks on All category
+       Then User clicks on electronics category
+       Then User clicks on home category
+    @tc7
+    Scenario: TC_007 A valid coupon is listed in the designated Coupon section and it is redeemed for its intended purpose.
+      Given User clicks on coupon section
+      Then Verify that user is in the coupon section
+      Then User clicks on get now button
+      Then Verify that the text coupon store successfully
+      @tc8
+      Scenario: TC_008 Products is displayed in the new User Gift section in the Coupon section.
+        Given User clicks on coupon section
+        Then User displays the products in the new user gift section in the coupon section
+     @tc9
+    Scenario: TC_009 In the New User Gift section, it should be possible to perform operations on products
+             (adding to cart, selecting products for comparison, adding to Wish list, and viewing).
+      Given User clicks on coupon section
+      Then User clicks on new user gift product
+      Then User clicks on Add to Cart
+      Then Verify that user has added the item
+      Then User clicks on close icon
+      Then User clicks on Add to Compare
+      Then Verify that user has added to compare
+      Then User clicks on add to wishlist
+      Then Verify that user has added to wishlist

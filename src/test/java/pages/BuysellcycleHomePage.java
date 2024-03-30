@@ -7,6 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 import utilities.ConfigReader;
 import utilities.Driver;
 
+import java.util.List;
 import java.util.Properties;
 
 
@@ -123,6 +124,51 @@ public class BuysellcycleHomePage {
 
     @FindBy(xpath = "//h5[@class='font_14 f_w_400 flex-fill mb-0']")
     public WebElement labelShowingResult;
+
+    @FindBy(xpath = "(//*[@class='col-md-6'])[1]")
+    public WebElement addToCartButton;
+
+    @FindBy(xpath = "//*[text()='Item added to your cart']")
+    public WebElement textAddedToCart;
+
+    @FindBy(xpath = "//*[@class='close_modal_icon']")
+    public WebElement closeIcon;
+
+    @FindBy(xpath = "//*[@id='add_to_compare_btn_modify']")
+    public WebElement addToCompareButton;
+
+    @FindBy(xpath = "//*[text()='Success']")
+    public WebElement alertAddToCompare;
+
+    @FindBy(xpath = "//*[@id='wishlist_btn']")
+    public WebElement addToWishListButton;
+
+    @FindBy(xpath = "//*[text()='Warning']")
+    public WebElement alertAddToWishList;
+
+    @FindBy(xpath = "(//*[@role='tab'])[4]")
+    public WebElement allCategory;
+
+    @FindBy(xpath = "(//*[@role='tab'])[5]")
+    public WebElement electronicsCategory;
+
+    @FindBy(xpath = "(//*[@role='tab'])[6]")
+    public WebElement homeCategory;
+
+    @FindBy(xpath = "//*[text()='Get Now']")
+    public WebElement getNowButton;
+
+    @FindBy(xpath = "//*[text()='Success']")
+    public WebElement alertgetNow;
+
+    @FindBy(xpath = "//*[@class='col-xl-3 col-lg-4 col-md-6']")
+    public List<WebElement> newUserGiftProducts;
+
+    @FindBy(xpath = "((//*[@class='lazyload'])[2])")
+    public WebElement newUserGiftProduct;
+
+    @FindBy(xpath = "(//*[@class='col-md-6'])[1]")
+    public WebElement addToCartButtonNewUserGift;
 
 
 

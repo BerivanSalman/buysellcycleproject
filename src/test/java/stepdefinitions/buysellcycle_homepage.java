@@ -3,6 +3,7 @@ package stepdefinitions;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.junit.Assert;
 
@@ -367,4 +368,96 @@ Assert.assertTrue(buysellcycleHomePage.logoClientWorldwide.isDisplayed());
     }
 
 
+    @Then("User click a product")
+    public void userClickAProduct() {
+      buysellcycleHomePage.firstProductName.click();
+      ReusableMethods.wait(3);
+    }
+
+    @Then("User clicks on Add to Cart")
+    public void userClicksOnAddToCart() {
+        buysellcycleHomePage.addToCartButton.click();
+        ReusableMethods.wait(1);
+
+    }
+
+    @Then("Verify that user has added the item")
+    public void verifyThatUserHasAddedTheItem() {
+     Assert.assertTrue(buysellcycleHomePage.textAddedToCart.isDisplayed());
+    }
+
+    @Then("User clicks on Add to Compare")
+    public void userClicksOnAddToCompare() {
+      buysellcycleHomePage.addToCompareButton.click();
+      ReusableMethods.wait(2);
+    }
+
+    @Then("Verify that user has added to compare")
+    public void verifyThatUserHasAddedToCompare() {
+      Assert.assertTrue(buysellcycleHomePage.alertAddToCompare.isDisplayed());
+    }
+
+    @Then("User clicks on add to wishlist")
+    public void userClicksOnAddToWishlist() {
+        buysellcycleHomePage.addToWishListButton.click();
+
+    }
+
+    @Then("Verify that user has added to wishlist")
+    public void verifyThatUserHasAddedToWishlist() {
+        String expectedAlert="Success";
+        String actualAlert=buysellcycleHomePage.alertAddToWishList.getText();
+        Assert.assertEquals(expectedAlert,actualAlert);
+
+    }
+
+    @Then("User clicks on close icon")
+    public void userClicksOnCloseIcon() {
+        buysellcycleHomePage.closeIcon.click();
+    }
+
+    @Then("User clicks on All category")
+    public void userClicksOnAllCategory() {
+        buysellcycleHomePage.allCategory.click();
+
+    }
+
+    @Then("User clicks on electronics category")
+    public void userClicksOnElectronicsCategory() {
+       buysellcycleHomePage.electronicsCategory.click();
+    }
+
+    @Then("User clicks on home category")
+    public void userClicksOnHomeCategory() {
+        buysellcycleHomePage.homeCategory.click();
+    }
+
+    @Then("User clicks on get now button")
+    public void userClicksOnGetNowButton() {
+        buysellcycleHomePage.getNowButton.click();
+
+    }
+
+    @Then("Verify that the text coupon store successfully")
+    public void verifyThatTheTextCouponStoreSuccessfully() {
+        String expectedAlert="Success";
+        String actualAlert=buysellcycleHomePage.labelSignIn.getText();
+        Assert.assertEquals(expectedAlert,actualAlert);
+    }
+
+    @Then("User displays the products in the new user gift section in the coupon section")
+    public void userDisplaysTheProductsInTheNewUserGiftSectionInTheCouponSection() {
+        for (int i = 0; i < 4; i++) {
+            Assert.assertTrue(buysellcycleHomePage.newUserGiftProducts.get(i).isDisplayed());
+
+        }
+    }
+
+    @Then("User clicks on new user gift product")
+    public void userClicksOnNewUserGiftProduct() {
+        JavascriptExecutor javascriptExecutor = (JavascriptExecutor)Driver.getDriver();
+        javascriptExecutor.executeScript("arguments[0].scrollIntoView();",buysellcycleHomePage.newUserGiftProduct);
+        buysellcycleHomePage.newUserGiftProduct.click();
+        ReusableMethods.wait(1);
+    }
 }
