@@ -1,3 +1,4 @@
+
 Feature: US_005 As a user, I would like to be able to log in with the email and password I registered with the site.
 
   Scenario: TC01 As a user, I should be able to reach login page successfully
@@ -19,7 +20,7 @@ Feature: US_005 As a user, I would like to be able to log in with the email and 
     And User ensures that Remember me checkBox is selectable to remember the information entered
     Then User clicks on the Sign In button.
     And User closes the page.
-
+  @tc4
   Scenario: TC03 As a user, I should be able to switch to the Forgot Password page from the login page if I forget the password
     Given User goes to the buysellcyle homepage.
     Then User verifies that the login link is visible on the top bar of the home page.
@@ -108,8 +109,7 @@ Feature: US_005 As a user, I would like to be able to log in with the email and 
       And User verifies the an error message should display.
       And User closes the page.
 
-      Scenario: TC10 As a user,  I should ensure that the Daily Deals feature is visible and functional, and that special promotional
-      products are displayed along with a counter on the Daily Deals page.
+
 
 
 
