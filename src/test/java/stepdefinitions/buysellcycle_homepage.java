@@ -1,5 +1,6 @@
 package stepdefinitions;
 
+import com.github.javafaker.Faker;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -12,13 +13,23 @@ import org.openqa.selenium.JavascriptExecutor;
 
 
 
+import lombok.extern.slf4j.Slf4j;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 
 import org.junit.Assert;
 
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Wait;
+
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
 import pages.BuysellcycleHomePage;
 import pages.BuysellcycleRegisteredUserPage;
 import utilities.ConfigReader;
@@ -37,7 +48,8 @@ public class buysellcycle_homepage {
 
     BuysellcycleHomePage buysellcycleHomePage = new BuysellcycleHomePage();
     BuysellcycleRegisteredUserPage buysellcycleRegisteredUserPage = new BuysellcycleRegisteredUserPage();
-
+    Faker faker =new Faker();
+    Actions actions = new Actions(Driver.getDriver());
     @Given("User goes to the buysellcyle homepage.")
     public void user_goes_to_the_buysellcyle_homepage() {
         Driver.getDriver().get(ConfigReader.getProperty("Url"));
@@ -566,6 +578,29 @@ Assert.assertTrue(buysellcycleHomePage.logoClientWorldwide.isDisplayed());
         Assert.assertTrue(buysellcycleHomePage.textSuccess.isDisplayed());
     }
 
+
+    @Given("User verifies the slider images visible on the home page.")
+    public void user_verifies_the_slider_images_visible_on_the_home_page() {
+     buysellcycleHomePage.subscribeCloseButton.click();
+
+    assertTrue(buysellcycleHomePage.imageSlider1.isDisplayed());
+    }
+    @Given("User switch between slider images")
+    public void user_switch_between_slider_images() throws InterruptedException {
+        wait(5000);
+        if (!buysellcycleHomePage.imageSlider1.isDisplayed()) {
+            System.out.println("User switch between slider images");
+        } else {
+            System.out.println("User can not switch between slider images");
+        }
+    }
+    @Given("User sees images in the slider are displayed in the loop in automatic order")
+    public void user_sees_images_in_the_slider_are_displayed_in_the_loop_in_automatic_order() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+
+
     @And("User clicks add to wishlist action")
     public void userClicksAddToWishlistAction() {
         buysellcycleHomePage.linkWishList.click();
@@ -684,4 +719,5 @@ Assert.assertTrue(buysellcycleHomePage.logoClientWorldwide.isDisplayed());
         ReusableMethods.wait(1);
     }
 }
+
 
