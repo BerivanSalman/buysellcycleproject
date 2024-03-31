@@ -1,11 +1,13 @@
 package pages;
 
-feature/Reyhan1
+import com.github.javafaker.Faker;
 import org.junit.Assert;
 
 import org.bouncycastle.jcajce.provider.asymmetric.X509;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utilities.ConfigReader;
@@ -46,7 +48,7 @@ public class BuysellcycleHomePage {
     @FindBy(xpath = "(//*[@class='single_top_lists d-flex align-items-center d-none d-md-inline-flex'])[3]")
     public WebElement LinkWishList;
 
-    @FindBy(xpath = "((//*[text()='Cart ('])[1]")
+    @FindBy(xpath = "((//*[text()='Cart ('])[2]")
     public WebElement LinkCart;
 
     @FindBy(xpath = "(//*[@class='single_top_lists d-flex align-items-center d-none d-md-inline-flex'])[]")
@@ -58,7 +60,7 @@ public class BuysellcycleHomePage {
     @FindBy(xpath = "(//*[text()='Track Your Order'])[2]")
     public WebElement labelTrackYourOrder;
 
-    @FindBy(xpath = "//*[@class='compare_title_div']")
+    @FindBy(xpath = "//*[text()='Product compare']")
     public WebElement labelCompare;
 
     @FindBy(xpath = "//*[text()='Order Summary']")
@@ -172,6 +174,16 @@ public class BuysellcycleHomePage {
     @FindBy(xpath = "//h5[@class='font_14 f_w_400 flex-fill mb-0']")
     public WebElement labelShowingResult;
 
+@FindBy( xpath= "(//*[@title='woman fashion'])[1]")
+    public WebElement imageSlider1;
+
+
+@FindBy(xpath = "(//*[@id='inlineFormInputGroup'])[1]")
+    public WebElement searchButton;
+
+
+@FindBy(xpath = "/html/body/div[15]/div/div/div[1]/i")
+    public WebElement subscribeCloseButton;
 
 
 }
