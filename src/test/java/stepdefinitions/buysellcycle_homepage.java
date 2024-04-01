@@ -1,36 +1,71 @@
 package stepdefinitions;
 
+import com.github.javafaker.Faker;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+
+
+import org.openqa.selenium.By;
+
+
+import org.openqa.selenium.JavascriptExecutor;
+
+
+
+
+import lombok.extern.slf4j.Slf4j;
+import org.openqa.selenium.By;
+
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+
 import org.junit.Assert;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Wait;
+
+import org.openqa.selenium.WebDriverException;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+
 import pages.BuysellcycleHomePage;
 import pages.BuysellcycleRegisteredUserPage;
 import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
+
+
+import java.time.Duration;
+import java.util.List;
+
+import static org.junit.Assert.*;
+
 import java.util.concurrent.TimeUnit;
 
 public class buysellcycle_homepage {
 
     BuysellcycleHomePage buysellcycleHomePage = new BuysellcycleHomePage();
     BuysellcycleRegisteredUserPage buysellcycleRegisteredUserPage = new BuysellcycleRegisteredUserPage();
-
+    Faker faker =new Faker();
+    Actions actions = new Actions(Driver.getDriver());
     @Given("User goes to the buysellcyle homepage.")
     public void user_goes_to_the_buysellcyle_homepage() {
         Driver.getDriver().get(ConfigReader.getProperty("Url"));
     }
+
 
     @Then("User closed to page")
     public void user_closed_to_page() {
         // Write code here that turns the phrase above into concrete actions
         throw new io.cucumber.java.PendingException();
     }
+
 
     @Given("User clicks on the Log In button and displays the sign in page.")
     public void user_clicks_on_the_log_in_button_and_displays_the_sign_in_page() {
@@ -64,6 +99,62 @@ public class buysellcycle_homepage {
     public void userWaitsForSecondS(int second) {
         ReusableMethods.wait(second);
     }
+
+
+    @Given("User clicks on the Track Your Order and displays to Track Your Order page")
+    public void user_clicks_on_the_track_your_order_and_displays_to_track_your_order_page() {
+        buysellcycleHomePage.LinkTrackYourOrder.click();
+        buysellcycleHomePage.labelTrackYourOrder.isDisplayed();
+        String actualUrl = Driver.getDriver().getCurrentUrl();
+        String expectedUrl = "https://qa.buysellcycle.com/track-order";
+        assertEquals(actualUrl,expectedUrl);
+    }
+
+    @Given("User clicks on the Compare and displays to Compare page")
+    public void user_clicks_on_the_compare_and_displays_to_compare_page() {
+        buysellcycleHomePage.LinkCompare.click();
+        buysellcycleHomePage.labelCompare.isDisplayed();
+        String actualUrl = Driver.getDriver().getCurrentUrl();
+        String expectedUrl = "https://qa.buysellcycle.com/compare";
+        assertEquals(actualUrl,expectedUrl);
+    }
+
+    @Given("User clicks on the Shopping Cart and displays to Shopping Cart page")
+    public void user_clicks_on_the_shopping_cart_and_displays_to_shopping_cart_page() {
+        buysellcycleHomePage.LinkCart.click();
+        buysellcycleHomePage.labelOrderSummaryInCart.isDisplayed();
+        String actualUrl = Driver.getDriver().getCurrentUrl();
+        String expectedUrl = "https://qa.buysellcycle.com/cart";
+        assertEquals(actualUrl,expectedUrl);
+    }
+
+    @Given("User clicks on the New User Zone and displays to New User Zone page")
+    public void user_clicks_on_the_new_user_zone_and_displays_to_new_user_zone_page() {
+        buysellcycleHomePage.LinkNewUserZone.click();
+        buysellcycleHomePage.labelForNewUserZone.isDisplayed();
+        String actualUrl = Driver.getDriver().getCurrentUrl();
+        String expectedUrl = "https://qa.buysellcycle.com/new-user-zone/welcome-buysellcycle!-u7dzv";
+        assertEquals(actualUrl,expectedUrl);
+    }
+
+    @Given("User clicks on the Daily Deals and displays to Daily Deals page")
+    public void user_clicks_on_the_daily_deals_and_displays_to_daily_deals_page() {
+        buysellcycleHomePage.LinkDailyDeals.click();
+        buysellcycleHomePage.LinkDailyDeals.isDisplayed();
+        String actualUrl = Driver.getDriver().getCurrentUrl();
+        String expectedUrl = "https://qa.buysellcycle.com/flash-deal/march-flash-sale-gdfn6";
+        assertEquals(actualUrl,expectedUrl);
+    }
+
+    @Given("User clicks on the Wish List and displays to Wish List page")
+    public void user_clicks_on_the_wish_list_and_displays_to_wish_list_page() {
+       String actualUrl = Driver.getDriver().getCurrentUrl();
+       String expectedUrl = "https://qa.buysellcycle.com/my-wishlist";
+       assertEquals(actualUrl,expectedUrl);
+
+    }
+
+
 
     @And("User scrolls down the page until sees the Best Deals section.")
     public void userScrollsDownThePageUntilSeesTheBestDealsSection() {
@@ -308,6 +399,23 @@ public class buysellcycle_homepage {
        Assert.assertTrue(buysellcycleHomePage.specialDiscountName.isDisplayed());
     }
 
+    @Given("User scrolls down the page until sees Footer section.")
+    public void userScrollsDownThePageUntilSeesFooterSection() {
+        ReusableMethods.scrollToElement(buysellcycleHomePage.aboutUsLink);
+    }
+
+    @Then("User click Blog section.")
+    public void userClickBlogSection() {
+        buysellcycleHomePage.blogLink.click();
+
+    }
+
+    @And("User confirms that they were redirected to the Blog page.")
+    public void userConfirmsThatTheyWereRedirectedToTheBlogPage() {
+        String expectedUrl= "https://qa.buysellcycle.com/blog";
+        String actualUrl=Driver.getDriver().getCurrentUrl();
+        Assert.assertEquals(expectedUrl,actualUrl);
+    }
 
     @Then("User scrolls down the page until sees the   Client Worldwide.Clicks on the About Us linktext from the home page")
     public void user_scrolls_down_the_page_until_sees_the_client_worldwide_clicks_on_the_about_us_linktext_from_the_home_page() {
@@ -361,13 +469,260 @@ Assert.assertTrue(buysellcycleHomePage.logoClientWorldwide.isDisplayed());
 
     buysellcycleHomePage.linkMyWishList.click();
 
-
     }
 
     @Then("User verified that  My Wishlist page")
     public void user_verified_that_my_wishlist_page() {
         Assert.assertTrue(buysellcycleHomePage.labelShowingResult.isDisplayed());
     }
+    @Then("User verifies that the Daily Deals menu item is visible on the homepage navbar.")
+    public void user_verifies_that_the_daily_deals_menu_item_is_visible_on_the_homepage_navbar() {
+        Assert.assertTrue(buysellcycleHomePage.linkDailyDeals.isDisplayed());
+    }
+    @Then("User clicks the Daily Deals menu item on the homepage")
+    public void user_clicks_the_daily_deals_menu_item_on_the_homepage() {
+      buysellcycleHomePage.linkDailyDeals.click();
+    }
+    @Then("User ensures that clicking on the Daily Deals menu item redirects the user to the Daily Deals page.")
+    public void user_ensures_that_clicking_on_the_daily_deals_menu_item_redirects_the_user_to_the_daily_deals_page() {
+        String expectedResult = "https://qa.buysellcycle.com/flash-deal/march-flash-sale-gdfn6";
+        String actualResult = Driver.getDriver().getCurrentUrl();
+        Assert.assertEquals(expectedResult,actualResult);
+    }
+    @Then("User confirms that a counter is displayed on the Daily Deals page.")
+    public void user_confirms_that_a_counter_is_displayed_on_the_daily_deals_page() {
+        buysellcycleHomePage.counter.isDisplayed();
+    }
+    @Then("User validates that special promotional products are visible on the Daily Deals page.")
+    public void user_validates_that_special_promotional_products_are_visible_on_the_daily_deals_page() {
+        Assert.assertTrue(buysellcycleHomePage.specialPromotionalProducts.size() > 0);
+    }
+
+    @Then("User scrolls down the page")
+    public void user_scrolls_down_the_page() {
+        ReusableMethods.scrollToElement(buysellcycleHomePage.buttonForScrollAddtoCart);
+    }
+
+    @And("User waits for {int} seconds")
+    public void userWaitsForSeconds(int saniye) {
+        ReusableMethods.wait(saniye);
+    }
+
+    @Then("User clicks one of the products")
+    public void userClicksOneOfTheProducts() {
+        buysellcycleHomePage.specialPromotionalProducts.get(0).click();
+    }
+
+    @Then("User verifies that add to cart button is visible and clicks add to cart button")
+    public void userVerifiesThatAddToCartButtonIsVisibleAndClicksAddToCartButton() {
+        buysellcycleHomePage.buttonAddtoCart.click();
+    }
+
+    @Then("User ensures that the product is added to the cart")
+    public void userEnsuresThatTheProductIsAddedToTheCart() {
+       Assert.assertTrue(buysellcycleHomePage.textAddtoCart.isDisplayed());
+    }
+
+    @And("User clicks View Cart button to see the products")
+    public void userClicksViewCartButtonToSeeTheProductProducts() {
+        buysellcycleHomePage.buttonViewCart.click();
+    }
+
+    @Then("User verifies that the price of the product is correct")
+    public void userVerifiesThatThePriceOfTheProductIsCorrect() {
+        double expectedPrice =55500.0;
+        String sonucSayisiStr = buysellcycleHomePage.priceOfTheProduct.getText().replaceAll("\\D","");
+        double sonucSayisiInt = Integer.parseInt(sonucSayisiStr);
+        double actualPrice = sonucSayisiInt;
+        double delta = 0.1;
+        Assert.assertEquals(expectedPrice, actualPrice, delta);
+
+
+    }
+
+    @And("User verifies that the chosen product is correct")
+    public void userVerifiesThatTheChosenProductIsCorrect() {
+        String chosenProduct = buysellcycleHomePage.textChosenProduct.getText();
+        String addedProduct = buysellcycleHomePage.addedProduct.getText();
+        Assert.assertEquals(chosenProduct,addedProduct);
+
+    }
+
+    @Then("User ensures the number of the selected product is correct")
+    public void userEnsuresTheNumberOfTheSelectedProductIsCorrect() {
+    }
+
+    @Then("User verifies that Add to Compare action visible")
+    public void userVerifiesThatAddToCompareActionVisible() {
+        
+    }
+
+    @And("User clicks Add to Compare action")
+    public void userClicksAddToCompareAction() {
+        buysellcycleHomePage.linkCompare.click();
+
+    }
+
+    @And("User confirms that the selected product is added to the comparison list")
+    public void userConfirmsThatTheSelectedProductIsAddedToTheComparisonList() {
+
+    }
+
+    @Then("User clicks on the  button in the header")
+    public void userClicksOnTheButtonInTheHeader() {
+    }
+
+    @And("User scrolls down to see Add to compare action the page")
+    public void userScrollsDownToSeeAddToCompareActionThePage() {
+        ReusableMethods.scrollToElement(buysellcycleHomePage.textChosenProduct);
+    }
+
+    @Then("User views the success message")
+    public void userViwesTheSuccessMessage() {
+        Assert.assertTrue(buysellcycleHomePage.textSuccess.isDisplayed());
+    }
+
+
+    @Given("User verifies the slider images visible on the home page.")
+    public void user_verifies_the_slider_images_visible_on_the_home_page() {
+     buysellcycleHomePage.subscribeCloseButton.click();
+
+    assertTrue(buysellcycleHomePage.imageSlider1.isDisplayed());
+    }
+    @Given("User switch between slider images")
+    public void user_switch_between_slider_images() throws InterruptedException {
+        wait(5000);
+        if (!buysellcycleHomePage.imageSlider1.isDisplayed()) {
+            System.out.println("User switch between slider images");
+        } else {
+            System.out.println("User can not switch between slider images");
+        }
+    }
+    @Given("User sees images in the slider are displayed in the loop in automatic order")
+    public void user_sees_images_in_the_slider_are_displayed_in_the_loop_in_automatic_order() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+
+
+    @And("User clicks add to wishlist action")
+    public void userClicksAddToWishlistAction() {
+        buysellcycleHomePage.linkWishList.click();
+    }
+
+    @Then("User views the warning message")
+    public void userViwesTheWarningMessage() {
+        Assert.assertTrue(buysellcycleHomePage.textWarning.isDisplayed());
+    }
+
+
+    @Then("User writes less than required product number to the quantity box")
+    public void userWritesLessThanRequiredProductNumberToTheQuantityBox() {
+        buysellcycleHomePage.boxQuantity.clear();
+        buysellcycleHomePage.boxQuantity.sendKeys("0");
+
+    }
+
+    @And("User writes more than required product number to the quantity box")
+    public void userWritesMoreThanRequiredProductNumberToTheQuantityBox() {
+        buysellcycleHomePage.boxQuantity.clear();
+        buysellcycleHomePage.boxQuantity.sendKeys("5");
+    }
+}
+
+    @Then("User click a product")
+    public void userClickAProduct() {
+      buysellcycleHomePage.firstProductName.click();
+      ReusableMethods.wait(3);
+    }
+
+    @Then("User clicks on Add to Cart")
+    public void userClicksOnAddToCart() {
+        buysellcycleHomePage.addToCartButton.click();
+        ReusableMethods.wait(1);
+
+    }
+
+    @Then("Verify that user has added the item")
+    public void verifyThatUserHasAddedTheItem() {
+     Assert.assertTrue(buysellcycleHomePage.textAddedToCart.isDisplayed());
+    }
+
+    @Then("User clicks on Add to Compare")
+    public void userClicksOnAddToCompare() {
+      buysellcycleHomePage.addToCompareButton.click();
+      ReusableMethods.wait(2);
+    }
+
+    @Then("Verify that user has added to compare")
+    public void verifyThatUserHasAddedToCompare() {
+      Assert.assertTrue(buysellcycleHomePage.alertAddToCompare.isDisplayed());
+    }
+
+    @Then("User clicks on add to wishlist")
+    public void userClicksOnAddToWishlist() {
+        buysellcycleHomePage.addToWishListButton.click();
+
+    }
+
+    @Then("Verify that user has added to wishlist")
+    public void verifyThatUserHasAddedToWishlist() {
+        String expectedAlert="Success";
+        String actualAlert=buysellcycleHomePage.alertAddToWishList.getText();
+        Assert.assertEquals(expectedAlert,actualAlert);
+
+    }
+
+    @Then("User clicks on close icon")
+    public void userClicksOnCloseIcon() {
+        buysellcycleHomePage.closeIcon.click();
+    }
+
+    @Then("User clicks on All category")
+    public void userClicksOnAllCategory() {
+        buysellcycleHomePage.allCategory.click();
+
+    }
+
+    @Then("User clicks on electronics category")
+    public void userClicksOnElectronicsCategory() {
+       buysellcycleHomePage.electronicsCategory.click();
+    }
+
+    @Then("User clicks on home category")
+    public void userClicksOnHomeCategory() {
+        buysellcycleHomePage.homeCategory.click();
+    }
+
+    @Then("User clicks on get now button")
+    public void userClicksOnGetNowButton() {
+        buysellcycleHomePage.getNowButton.click();
+
+    }
+
+    @Then("Verify that the text coupon store successfully")
+    public void verifyThatTheTextCouponStoreSuccessfully() {
+        String expectedAlert="Success";
+        String actualAlert=buysellcycleHomePage.labelSignIn.getText();
+        Assert.assertEquals(expectedAlert,actualAlert);
+    }
+
+    @Then("User displays the products in the new user gift section in the coupon section")
+    public void userDisplaysTheProductsInTheNewUserGiftSectionInTheCouponSection() {
+        for (int i = 0; i < 4; i++) {
+            Assert.assertTrue(buysellcycleHomePage.newUserGiftProducts.get(i).isDisplayed());
+
+        }
+    }
+
+    @Then("User clicks on new user gift product")
+    public void userClicksOnNewUserGiftProduct() {
+        JavascriptExecutor javascriptExecutor = (JavascriptExecutor)Driver.getDriver();
+        javascriptExecutor.executeScript("arguments[0].scrollIntoView();",buysellcycleHomePage.newUserGiftProduct);
+        buysellcycleHomePage.newUserGiftProduct.click();
+        ReusableMethods.wait(1);
+    }
+}
 
     @Given("User scrolls down the page until sees the Password section.")
     public void user_scrolls_down_the_page_until_sees_the_password_section() {
@@ -412,4 +767,3 @@ Assert.assertTrue(buysellcycleHomePage.logoClientWorldwide.isDisplayed());
 
 
 
-}

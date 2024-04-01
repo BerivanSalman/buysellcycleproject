@@ -1,3 +1,4 @@
+
 Feature: US_005 As a user, I would like to be able to log in with the email and password I registered with the site.
 
   Scenario: TC01 As a user, I should be able to reach login page successfully
@@ -19,7 +20,7 @@ Feature: US_005 As a user, I would like to be able to log in with the email and 
     And User ensures that Remember me checkBox is selectable to remember the information entered
     Then User clicks on the Sign In button.
     And User closes the page.
-
+  @tc4
   Scenario: TC03 As a user, I should be able to switch to the Forgot Password page from the login page if I forget the password
     Given User goes to the buysellcyle homepage.
     Then User verifies that the login link is visible on the top bar of the home page.
@@ -94,6 +95,29 @@ Feature: US_005 As a user, I would like to be able to log in with the email and 
     And User verifies the an error message should display.
     Then User waits 2 minutes
     And User closes the page.
+
+    Scenario: TC09 As a user, I should not be able to sign in by entering a valid email and an invalid password and an error message should display
+      Given User goes to the buysellcyle homepage.
+      Then User verifies that the login link is visible on the top bar of the home page.
+      And User clicks on the Log In button and displays the sign in page.
+      Then  User validates that the sign-in form is visible on the left side of the login page.
+      And  User verifies that email input box is visible
+      And User verifies that password input box is visible
+      Then User clicks on the Email address or phone box and enters a valid "berivanUserMail".
+      And User clicks on the Password box and enters  "berivanGecersizPassword"
+      Then User clicks on the Sign In button.
+      And User verifies the an error message should display.
+      And User closes the page.
+
+
+
+
+
+
+
+
+
+
 
 
 

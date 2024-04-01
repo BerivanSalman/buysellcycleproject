@@ -12,6 +12,22 @@ public class BuysellcycleRegisteredUserPage {
     @FindBy(xpath = "(//*[text()='Dashboard'])[1]")
     public WebElement headDashboardButton;
 
+    @FindBy(xpath = "/html/body/div/div[1]/div/form/div/div[1]/input")
+    public WebElement emailAdressOrPhoneButton;
+
+    @FindBy(xpath ="/html/body/div/div[1]/div/form/div/div[2]/input")
+    public WebElement passwordBox;
+
+    @FindBy(xpath = "/html/body/header/div/div[2]/div/div/div/div/div[3]/div[1]/div/span/a[2]")
+    public WebElement logOutTopOfPageButton;
+
+    @FindBy(xpath = "[text='Logout Successfully']")
+    public WebElement popupSuccessLogout;
+
+    @FindBy(xpath = "/html/body/div[3]/div/div/div[1]/div/div[2]/div/ul/li[16]/a")
+    public WebElement logOutDashboardSidebar;
+
+
     @FindBy(xpath = "(//*[text()='Login'])[1]") public WebElement logInButton;
     @FindBy(xpath = "//*[@class='img-fluid']") public WebElement imageSignInPage;
     @FindBy(xpath = "//*[text()='Turn your ideas into reality..']") public WebElement signInPageText;

@@ -3,12 +3,17 @@ package stepdefinitions;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
 import pages.BuysellcycleAdminPage;
 import pages.BuysellcycleHomePage;
 import pages.BuysellcycleRegisteredUserPage;
 import utilities.ConfigReader;
 import utilities.Driver;
+import utilities.ReusableMethods;
 
 public class buysellcycle_registereduserpage {
 
@@ -131,5 +136,59 @@ public class buysellcycle_registereduserpage {
     public void userClicksOnThePasswordBoxAndEnters(String gecersizPassword) {
         buysellcycleRegisteredUserPage.passwordPlaceholder.click();
         buysellcycleRegisteredUserPage.passwordPlaceholder.sendKeys(ConfigReader.getProperty(gecersizPassword));
+    }
+    @When("Registered user clicks on LOGIN")
+    public void registered_user_clicks_on_login() {
+        buysellcycleRegisteredUserPage.logInButton.click();
+    }
+    @Then("Registered user clicks on the Email address or phone box")
+    public void registered_user_clicks_on_the_email_address_or_phone_box() {
+        buysellcycleRegisteredUserPage.emailAdressOrPhoneButton.click();
+    }
+
+    @And("Registered user writes his {string} or phone number")
+    public void registeredUserWritesHisOrPhoneNumber(String mail) {
+        buysellcycleRegisteredUserPage.emailAdressOrPhoneButton.sendKeys(ConfigReader.getProperty("reyhanUserMail"));
+    }
+
+
+    @Then("Registered user clicks on the Password box")
+    public void registretedUserClicksOnThePasswordBox() {
+        buysellcycleRegisteredUserPage.passwordBox.click();
+    }
+
+    @And("Registered user writes his\\/her {string}")
+    public void registeredUserWritesHisHer(String P) {
+        buysellcycleRegisteredUserPage.passwordBox.sendKeys(ConfigReader.getProperty("reyhanPassword"));
+    }
+    @Then("Registered user clicks to signs in")
+    public void registeredUserClicksToSignsIn() {
+        buysellcycleRegisteredUserPage.signInButton.click();
+    }
+
+
+    @Then("The logout link displays top of the homepage")
+    public void theLogoutLinkDisplaysTopOfTheHomepage() {
+        buysellcycleRegisteredUserPage.logOutTopOfPageButton.isDisplayed();
+    }
+
+    @And("Click to logout link")
+    public void clickToLogoutLink() {
+        buysellcycleRegisteredUserPage.logOutTopOfPageButton.click();
+    }
+
+
+    @Then("Click to logout link at the dashboard sidebar")
+    public void clickToLogoutLinkAtTheDashboardSidebar() {
+        WebElement element = buysellcycleRegisteredUserPage.logOutDashboardSidebar;
+        WebElement bestSportShoesElementi = Driver.getDriver().findElement(By.xpath("element"));
+        JavascriptExecutor javascriptExecutor= (JavascriptExecutor) Driver.getDriver();
+        javascriptExecutor.executeScript("arguments[0].scrollIntoView();",bestSportShoesElementi);
+
+
+    }
+
+    @Then("The logout link displays via dashboard sidebar")
+    public void theLogoutLinkDisplaysViaDashboardSidebar() {
     }
 }
