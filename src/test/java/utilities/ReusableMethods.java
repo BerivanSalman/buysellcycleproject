@@ -18,8 +18,8 @@ public class ReusableMethods {
 
     public static void scrollToElement(WebElement element){
 
-        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
-        js.executeScript("arguments[0].scrollIntoView();", element);
+        JavascriptExecutor javascriptExecutor = (JavascriptExecutor)Driver.getDriver();
+        javascriptExecutor.executeScript("arguments[0].scrollIntoView();",element);
     }
 
     public static void wait(int second){

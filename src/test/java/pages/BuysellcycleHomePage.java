@@ -27,7 +27,7 @@ public class BuysellcycleHomePage {
     @FindBy(xpath = "//input[@name='password']")
     public WebElement passwordBox;
 
-    @FindBy(xpath = "//button[@id='sign_in_btn']")
+    @FindBy( xpath = "//button[@class='amaz_primary_btn style2 radius_5px  w-100 text-uppercase  text-center mb_25']")
     public WebElement signInButton;
 
     @FindBy(xpath = "//h3[@class='m-0']")
@@ -114,16 +114,24 @@ public class BuysellcycleHomePage {
     @FindBy(xpath = "(//*[@class='section__title2 mb_35'])[2]")
     public WebElement labelTeamMember;
 
-    @FindBy(linkText = "Dashboard")
+    @FindBy(xpath = "(//*[text()='Dashboard'])[1]")
     public WebElement linkDashboard;
 
-    @FindBy(xpath = "(//a[@class='position-relative d-flex align-items-center'])[1]")
+    @FindBy(xpath = "(//*[@class='single_top_lists d-flex align-items-center d-none d-md-inline-flex'])[3]")
     public  WebElement linkMyWishList;
 
 
     @FindBy(xpath = "//h5[@class='font_14 f_w_400 flex-fill mb-0']")
     public WebElement labelShowingResult;
 
+    @FindBy(xpath = "//p[@class='sign_up_text']")
+    public WebElement labelForgotPassword;
+
+   @FindBy(xpath = "(//*[@class='nice-select amaz_select4'])[2]")
+    public  WebElement filterWishList;
+
+   @FindBy(xpath = "(//*[@class='addToCompareFromThumnail'])[1]")
+    public WebElement compareButton;
 
 
 
