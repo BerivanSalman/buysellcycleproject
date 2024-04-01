@@ -1,11 +1,13 @@
 package stepdefinitions;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
 import pages.BuysellcycleAdminPage;
 import utilities.ConfigReader;
 import utilities.Driver;
+import utilities.ReusableMethods;
 
 public class buysellcycle_adminpage {
 
@@ -43,4 +45,89 @@ public class buysellcycle_adminpage {
         Driver.closeDriver();
     }
 
+    @Then("Admin clicks Products link.")
+    public void adminClicksProductsLink() {
+    buysellcycleAdminPage.linkProduct.click();
+    }
+
+    @And("Admin displays Add New Product link")
+    public void adminDisplaysAddNewProductLink() {
+        buysellcycleAdminPage.linkAddNewProduct.isDisplayed();
+    }
+
+    @Then("Admin clicks Add New Product link")
+    public void adminClicksAddNewProductLink() {
+        buysellcycleAdminPage.linkAddNewProduct.click();
+    }
+
+    @Then("Admin displays Add New Product page")
+    public void adminDisplaysAddNewProductPage() {
+        String expectedUrl = "https://qa.buysellcycle.com/products/create";
+        String actualUrl = Driver.getDriver().getCurrentUrl();
+        Assert.assertEquals(expectedUrl,actualUrl);
+    }
+    @Then("Admin displays General Information")
+    public void admin_displays_general_information() {
+     buysellcycleAdminPage.buttonGeneralInformation.isDisplayed();
+    }
+    @Then("Admin displays Related Product")
+    public void admin_displays_related_product() {
+   buysellcycleAdminPage.buttonRelatedProduct.isDisplayed();
+    }
+    @Then("Admin displays Up Sale")
+    public void admin_displays_up_sale() {
+        buysellcycleAdminPage.buttonUpSale.isDisplayed();
+    }
+    @Then("Admin displays Cross Sale")
+    public void admin_displays_cross_sale() {
+      buysellcycleAdminPage.buttonCrossSale.isDisplayed();
+    }
+
+    @And("Admin clicks Single radiobutton")
+    public void adminClicksSingleRadiobutton() {
+        buysellcycleAdminPage.radioButtonTypeSingle.click();
+    }
+
+    @Then("Admin clicks Variant radiobutton")
+    public void adminClicksVariantRadiobutton() {
+        buysellcycleAdminPage.radioButtonTypeVariant.click();
+    }
+
+    @And("Admin waits {int} seconds")
+    public void adminWaitsSeconds(int seconds) {
+        ReusableMethods.wait(seconds);
+    }
+
+    @Then("Admin view Name text box")
+    public void admin_view_name_text_box() {
+        buysellcycleAdminPage.boxProductName.isDisplayed();
+    }
+    @Then("Admin views Product SKU box")
+    public void admin_views_product_sku_box() {
+        buysellcycleAdminPage.boxProductSku.isDisplayed();
+    }
+    @Then("Admin displays Model Number text")
+    public void admin_displays_model_number_text() {
+    buysellcycleAdminPage.boxModelNumber.isDisplayed();
+    }
+    @Then("Admin views Category box")
+    public void admin_views_category_box() {
+        buysellcycleAdminPage.boxCategory.isDisplayed();
+    }
+    @Then("Admin displays Brand box")
+    public void admin_displays_brand_box() {
+      buysellcycleAdminPage.boxBrandCategory.isDisplayed();
+    }
+    @Then("Admin displays Unit box")
+    public void admin_displays_unit_box() {
+        buysellcycleAdminPage.boxUnitCategory.isDisplayed();
+    }
+    @Then("Admin views Barcode Type box")
+    public void admin_views_barcode_type_box() {
+        buysellcycleAdminPage.boxBarcodeType.isDisplayed();
+    }
+    @Then("Admin views Tags \\(Comma Separated) box")
+    public void admin_views_tags_comma_separated_box() {
+        buysellcycleAdminPage.boxTags.isDisplayed();
+    }
 }

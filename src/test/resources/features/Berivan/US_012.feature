@@ -43,7 +43,7 @@ Feature: As a user, I would like the site to have a page with daily specials and
       Then User views the success message
       And User closes the page.
 
-  Scenario: TC04 As a user, I should be able to perform 'Add to wishlist' action on the products
+  Scenario: TC04 As a user, I should be able to perform 'Add to wishlist' action on the products and add the product to the wishlist
     Given User goes to the buysellcyle homepage.
     Then User verifies that the Daily Deals menu item is visible on the homepage navbar.
     And User clicks the Daily Deals menu item on the homepage
@@ -54,10 +54,9 @@ Feature: As a user, I would like the site to have a page with daily specials and
     And User scrolls down to see Add to compare action the page
     And User waits for 2 seconds
     And User clicks add to wishlist action
-    And User waits for 2 seconds
-    Then User views the warning message
+    Then User views the success message
     And User closes the page.
-  @ka
+
     Scenario: TC05 As a user, I should not be able to choose more or less products than the maximum amount I should choose
       Given User goes to the buysellcyle homepage.
       Then User verifies that the Daily Deals menu item is visible on the homepage navbar.

@@ -191,4 +191,72 @@ public class buysellcycle_registereduserpage {
     @Then("The logout link displays via dashboard sidebar")
     public void theLogoutLinkDisplaysViaDashboardSidebar() {
     }
+
+    @Then("User verifies that the user is successfully logged into the system.")
+    public void user_verifies_that_the_user_is_successfully_logged_into_the_system() {
+      String expectedResult = "https://qa.buysellcycle.com/profile/dashboard" ;
+      String actualResult = Driver.getDriver().getCurrentUrl();
+      Assert.assertEquals(expectedResult,actualResult);
+
+    }
+    @Then("User ensures that My Coupons menu item should be visible")
+    public void user_ensures_that_my_coupons_menu_item_should_be_visible() {
+       buysellcycleRegisteredUserPage.buttonMyCoupons.isDisplayed();
+    }
+
+    @Then("User ensures that Add Coupons window should be visible on My Coupons page")
+    public void user_ensures_that_add_coupons_window_should_be_visible_on_my_coupons_page() {
+   buysellcycleRegisteredUserPage.windowAddCoupon.isDisplayed();
+    }
+
+    @Then("User scrolls down the page until sees My Coupons")
+    public void userScrollsDownThePageUntilSeesMyCoupons() {
+        ReusableMethods.scrollToElement(buysellcycleRegisteredUserPage.scrollToMyCoupons);
+    }
+
+    @And("User clicks My coupons menu item")
+    public void userClicksMyCouponsMenuItem() {
+        buysellcycleRegisteredUserPage.buttonMyCoupons.click();
+
+    }
+
+    @Then("User clicks to the placeholder to enter a coupon code")
+    public void user_clicks_to_the_placeholder_to_enter_a_coupon_code() {
+     buysellcycleRegisteredUserPage.codePlaceholder.click();
+
+    }
+    @Then("User enters a valid code")
+    public void user_enters_a_valid_code() {
+        buysellcycleRegisteredUserPage.codePlaceholder.sendKeys("ucuz127");
+    }
+    @Then("User clicks Add Coupon link")
+    public void user_clicks_add_coupon_link() {
+        buysellcycleRegisteredUserPage.buttonAddCoupon.click();
+    }
+    @Then("User verifies that the coupons that the user has collected should be listed as Collected Coupons list")
+    public void user_verifies_that_the_coupons_that_the_user_has_collected_should_be_listed_as_collected_coupons_list() {
+        String expectedCodeCoupon  ="ucuz127";
+        String actualCodeCoupon = buysellcycleRegisteredUserPage.collectedCoupon.getText();
+        Assert.assertEquals(expectedCodeCoupon,actualCodeCoupon);
+    }
+    @Then("User clicks copy item under the action")
+    public void user_clicks_copy_item_under_the_action() {
+       buysellcycleRegisteredUserPage.buttonCopyCoupon.click();
+    }
+
+    @Then("User clicks delete item under the action")
+    public void user_clicks_delete_item_under_the_action() {
+        buysellcycleRegisteredUserPage.actionDelete.click();
+    }
+
+
+    @Then("User clicks delete button")
+    public void user_clicks_delete_button() {
+      buysellcycleRegisteredUserPage.buttonDelete.click();
+    }
+
+    @Then("User ensures that Are you sure to delete? is visible")
+    public void userEnsuresThatAreYouSureToDeleteIsVisible() {
+     buysellcycleRegisteredUserPage.textDelete.isDisplayed();
+    }
 }

@@ -37,9 +37,21 @@ public class BuysellcycleRegisteredUserPage {
     @FindBy(xpath = "//*[@id='sign_in_btn']") public WebElement signInButton;
     @FindBy(xpath = "//*[@class='checkmark mr_15']") public WebElement checkBoxRememberMe;
     @FindBy(xpath = "//*[text()='Click Here']") public WebElement linkForgotPassword;
-    @FindBy(xpath = "//*[@placeholder='Email Address']") public WebElement forgotPasswordEmailPlaceholder;
+    @FindBy(xpath = "//*[@name='email']") public WebElement forgotPasswordEmailPlaceholder;
     @FindBy(xpath = "//*[text()='Send link']") public WebElement sendLinkButton;
     @FindBy(xpath = "(//*[@class='text-danger'])[1]") public WebElement labelEmailRequired;
     @FindBy(xpath = "(//*[@class='text-danger'])[3]") public WebElement labelPasswordRequired;
     @FindBy(xpath = "//*[text()='These credentials do not match our records.']") public WebElement labelDoNotMatch;
+    @FindBy(xpath = "//*[@class='text-capitalize']") public WebElement scrollToMyCoupons;
+    @FindBy(xpath = "(//*[@class='position-relative d-flex align-items-center'])[5]") public WebElement buttonMyCoupons;
+    @FindBy(xpath = "//*[text()='Add Coupons']") public WebElement windowAddCoupon;
+    @FindBy(xpath = "//*[@name='code']")public WebElement codePlaceholder;
+    @FindBy(xpath = "//*[text()='Add Coupon']")public WebElement buttonAddCoupon;
+    @FindBy(xpath = "(//*[@class='gj-cursor-pointer copyBtn'])[3]") public WebElement buttonCopyCoupon;
+    @FindBy(xpath = "(//*[@class='font_14 f_w_500 mute_text text-nowrap'])[5]") public WebElement collectedCoupon;
+    @FindBy(xpath = "(//*[@class='gj-cursor-pointer coupon_delete_btn'])[2]") public WebElement actionDelete;
+    @FindBy(xpath = "//*[@class='text-center']") public WebElement textDelete;
+    @FindBy(xpath = "//*[@id='dataDeleteBtn']") public WebElement buttonDelete;
+
+
 }

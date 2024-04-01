@@ -20,7 +20,7 @@ Feature: US_005 As a user, I would like to be able to log in with the email and 
     And User ensures that Remember me checkBox is selectable to remember the information entered
     Then User clicks on the Sign In button.
     And User closes the page.
-  @tc4
+
   Scenario: TC03 As a user, I should be able to switch to the Forgot Password page from the login page if I forget the password
     Given User goes to the buysellcyle homepage.
     Then User verifies that the login link is visible on the top bar of the home page.
@@ -29,6 +29,7 @@ Feature: US_005 As a user, I would like to be able to log in with the email and 
     And User clicks the forgot password link
     Then User verifies that there is an email input box in the forgot password page
     And User enters a valid "berivanUserMail"
+    Then  User waits for 2 seconds
     Then User click the Send Link button
     And User closes the page.
 

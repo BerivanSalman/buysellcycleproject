@@ -24,4 +24,23 @@ public class BuysellcycleAdminPage {
     @FindBy(xpath = "//i[@class='fa fa-bell']")
     public WebElement iconAdminNotification;
 
+    @FindBy(xpath = "(//*[text()='Products'])[1]") public WebElement linkProduct;
+    @FindBy(xpath = "//*[text()='Add New Product']") public WebElement linkAddNewProduct;
+    @FindBy(xpath = "//*[text()='General Information']") public WebElement buttonGeneralInformation;
+    @FindBy(xpath = "(//*[@class='nav-link show'])[1]") public WebElement buttonRelatedProduct;
+    @FindBy(xpath = "(//*[@class='nav-link show'])[2]") public WebElement buttonUpSale;
+    @FindBy(xpath = "(//*[@class='nav-link show'])[3]") public WebElement buttonCrossSale;
+    @FindBy(xpath = "(//*[@name='product_type'])[1]") public WebElement radioButtonTypeSingle;
+    @FindBy(xpath ="(//*[@name='product_type'])[2]" ) public WebElement radioButtonTypeVariant;
+    @FindBy(xpath = "//*[@name='product_name']") public WebElement boxProductName;
+    @FindBy(xpath = "//*[@name='product_sku']") public WebElement boxProductSku;
+    @FindBy(xpath = "//*[@name='model_number']") public WebElement boxModelNumber;
+    @FindBy(xpath = "(//*[@role='combobox'])[1]") public WebElement boxCategory;
+    @FindBy(xpath = "(//*[@role='combobox'])[2]") public WebElement boxBrandCategory;
+    @FindBy(xpath = "(//*[@role='combobox'])[3]") public WebElement boxUnitCategory;
+    @FindBy(xpath = "//*[@class='nice-select primary_select mb-15']") public WebElement boxBarcodeType;
+    @FindBy(xpath = "//*[@class='bootstrap-tagsinput']") public WebElement boxTags;
+
+
+
 }
