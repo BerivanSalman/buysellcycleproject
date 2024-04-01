@@ -5,6 +5,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 
+
 import org.openqa.selenium.By;
 
 
@@ -15,6 +16,7 @@ import org.openqa.selenium.JavascriptExecutor;
 
 import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.By;
+
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 
@@ -22,6 +24,7 @@ import org.junit.Assert;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
@@ -29,6 +32,7 @@ import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
 
 import pages.BuysellcycleHomePage;
 import pages.BuysellcycleRegisteredUserPage;
@@ -450,7 +454,7 @@ Assert.assertTrue(buysellcycleHomePage.logoClientWorldwide.isDisplayed());
 
     @Then("Click on the Dashboard linktext from the home page")
     public void click_on_the_dashboard_linktext_from_the_home_page() {
-
+       ReusableMethods.wait(1);
         buysellcycleHomePage.linkDashboard.click();
 
     }
@@ -719,5 +723,47 @@ Assert.assertTrue(buysellcycleHomePage.logoClientWorldwide.isDisplayed());
         ReusableMethods.wait(1);
     }
 }
+
+    @Given("User scrolls down the page until sees the Password section.")
+    public void user_scrolls_down_the_page_until_sees_the_password_section() {
+        Actions actions = new Actions(Driver.getDriver());
+        actions.sendKeys(Keys.PAGE_DOWN).perform();
+    }
+
+    @Then("User waits for {int} second.")
+    public void user_waits_for_second_s(int seconds) {
+        try {
+            Thread.sleep(seconds*1000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    @Then("User verifies that the number of products displayed is greater than {int}")
+    public void user_verifies_that_the_number_of_products_displayed_is_greater_than(int sayi1) {
+        WebElement resultText=buysellcycleHomePage.labelShowingResult;
+        String result=resultText.getText();
+
+       result=result.replaceAll("\\D","");
+
+
+        Assert.assertTrue(Integer.parseInt(result)>0);
+    }
+
+    @Then("User clicks New button")
+    public void user_clicks_new_button() {
+       buysellcycleHomePage.filterWishList.click();
+    }
+
+    @Then("User clicks  the Compare button on the product")
+    public void user_clicks_the_compare_button_on_the_product() {
+       buysellcycleHomePage.compareButton.click();
+    }
+    @Then("User verifie  the product has been added to the page")
+    public void user_verifie_the_product_has_been_added_to_the_page() {
+
+
+    }
+
+
 
 
