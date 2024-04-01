@@ -30,8 +30,8 @@ public class BuysellcycleAdminPage {
     @FindBy(xpath = "(//*[@class='nav-link show'])[1]") public WebElement buttonRelatedProduct;
     @FindBy(xpath = "(//*[@class='nav-link show'])[2]") public WebElement buttonUpSale;
     @FindBy(xpath = "(//*[@class='nav-link show'])[3]") public WebElement buttonCrossSale;
-    @FindBy(xpath = "(//*[@name='product_type'])[1]") public WebElement radioButtonTypeSingle;
-    @FindBy(xpath ="(//*[@name='product_type'])[2]" ) public WebElement radioButtonTypeVariant;
+    @FindBy(xpath = "//span[@class='checkmark']") public WebElement radioButtonTypeSingle;
+    @FindBy(xpath ="(//span[@class='checkmark'])[2]" ) public WebElement radioButtonTypeVariant;
     @FindBy(xpath = "//*[@name='product_name']") public WebElement boxProductName;
     @FindBy(xpath = "//*[@name='product_sku']") public WebElement boxProductSku;
     @FindBy(xpath = "//*[@name='model_number']") public WebElement boxModelNumber;
